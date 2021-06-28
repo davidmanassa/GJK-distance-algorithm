@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++ build active file",
+            "command": "C:\\MinGW\\bin\\g++.exe",
+            "args": [
+                "-std=c++11",
+                "-IC:\\OpenGL\\GLFW\\include", 
+                "-IC:\\OpenGL\\GLEW\\include",
+                "-IC:\\OpenGL\\glm",
+                "-LC:\\OpenGL\\GLEW\\lib\\Release\\x64",
+                "-LC:\\OpenGL\\GLFW64\\lib-mingw-w64",
+                "${file}",
+                "shape.cpp",
+                "${fileDirname}\\common\\shader.cpp",
+                "-o",
+                "executable",
+                "C:\\OpenGL\\GLEW\\lib\\Release\\x64\\glew32s.lib",
+                "C:\\OpenGL\\GLFW64\\lib-mingw-w64\\libglfw3dll.a",
+                "-lglew32s",
+                "-lglfw3",
+                "-lopengl32",
+                "-lglu32",
+                "-lgdi32",
+                "-mwindows",
+                "-DGLEW_STATIC"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ]
+}
+
+// g++ -o exec tutorial2.cpp common/shader.cpp -lglfw -lGL -lGLEW -lX11 -lpthread -ldl 
